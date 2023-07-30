@@ -1,5 +1,6 @@
 'use client'
 import React, {useState, useEffect} from 'react';
+import { collection, addDoc } from "firebase/firestore"; 
 
 export default function Home() {
   const [items, setItems] = useState([
@@ -40,6 +41,12 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        {items.length < 1 ? ('') : (
+          <div className='flex justify-between p-3'>
+            <span>Total</span>
+            <span>${total}</span>
+          </div>
+        )}
       </div>
       </div> 
     </main>
